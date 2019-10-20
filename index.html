@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Title of Page</title>
+    </head>
+    <body>
+        <h1>Rock and Roll</h1>
+        <script>
+            var moves = ["rock","paper","scissors"];
+            function computerPlay(){
+    
+                var choice = Math.floor(Math.random()*3);
+                return moves[choice];
+            }
+            function playrps(playerSelection,computerSelection){
+                if(playerSelection == "rock"){
+                    if(computerSelection == "rock"){
+                        return "tie";
+                    }
+                    else if(computerSelection == "paper"){
+                        return "lose";
+                    }
+                    else if(computerSelection == "scissors"){
+                        return "win";
+                    }
+                }
+                else if(playerSelection == "paper"){
+                    if(computerSelection == "rock"){
+                        return "win";
+                    }
+                    else if(computerSelection == "paper"){
+                        return "tie";
+                    }
+                    else if(computerSelection == "scissors"){
+                        return "lose";
+                    }
+                }
+                else if(playerSelection == "scissors"){
+                    if(computerSelection == "rock"){
+                        return "lose"
+                    }
+                    else if(computerSelection == "paper"){
+                        return "win";
+                    }
+                    else if(computerSelection == "scissors"){
+                        return "tie";
+                    }
+                }
+
+            }
+            function game(){
+                console.log("Lets play 5 games of rock, paper, scissors!")
+                var playerscore = 0;
+                var computerscore;
+                for(let i = 0;i < 5; i++){
+                    var p = window.prompt("Rock, paper or scissors?");
+                    p.toLowerCase();
+                    var c = computerPlay();
+                    console.log("You chose: " + p);
+                    console.log("The computer chose: " + c);
+                    var result = playrps(p,c);
+                    console.log("You " + result + " this round!");
+                    if(result == "win"){
+                        playerscore++;
+                    }   
+                    else if (result == "lose"){
+                        playerscore--;
+                    }
+                }
+                computerscore = 5 - playerscore;
+                console.log("Your score: " + playerscore);
+                console.log("The computer's score: " + computerscore);
+            }
+            game();
+        </script>
+    </body>
+</html>
