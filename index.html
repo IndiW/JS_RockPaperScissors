@@ -63,13 +63,22 @@
                     if(result == "win"){
                         playerscore++;
                     }   
-                    else if (result == "lose"){
-                        playerscore--;
+                    else if (result == "tie"){
+                        playerscore = playerscore + 0.5;
                     }
                 }
                 computerscore = 5 - playerscore;
                 console.log("Your score: " + playerscore);
                 console.log("The computer's score: " + computerscore);
+                if(playerscore > computerscore){
+                    alert("You win!");
+                }
+                else if(playerscore == computerscore){
+                    alert("You tied");
+                }
+                else{
+                    alert("You lose :(");
+                }
             }
             game();
         </script>
